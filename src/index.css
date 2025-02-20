@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+#lights {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-gradient {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 48px;
+  z-index: 10;
+}
+
+.gallery-gradient-left {
+  left: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, #060606 100%);
+}
+
+.gallery-gradient-right {
+  right: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #060606 100%);
+}
+
+.gallery-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.gallery-track {
+  display: flex;
+  height: auto;
+  min-height: 200px;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+.gallery-item {
+  position: absolute;
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 8%;
+  backface-visibility: hidden;
+}
+
+.gallery-img {
+  pointer-events: none;
+  height: 120px;
+  width: 300px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    padding: 6%;
+  }
+  .gallery-img {
+    height: 100px;
+    width: 220px;
+  }
+}
+
+
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px; /* Adjust width */
+  height: 8px; /* Adjust height for horizontal scrollbar */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #FFD700;  /* Adjust thumb color */
+  border-radius: 4px;
+  
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #dcdddd; /* Adjust track color */
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #1732df; /* Yellow for dark mode */
+}
+
+.bgimg {
+  background-image: url("https://i.pinimg.com/1200x/ba/b3/fb/bab3fb56c9e77fc959060023406fa006.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the full area */
+  height: 100vh; /* Full viewport height */
+  width: 100; /* Full viewport width */
+}
+
+.dark .bgimg {
+  background-image: url("https://i.pinimg.com/1200x/ad/b0/0c/adb00c594a50701003a2ef521247eb57.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the full area */
+  height: 100vh; /* Full viewport height */
+  width: 100; /* Full viewport width */
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+ /* Adjust height for horizontal scrollbar */
+  display: none;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #FFD700;  /* Adjust thumb color */
+  border-radius: 4px;
+  display: none;
+  
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background-color: #dcdddd; 
+  display: none;/* Adjust track color */
+}
+
+.box-shadow{
+  box-shadow: rgba(212, 212, 212, 0.407) 0px 4px 12px;}
+
+  .bgpattern{background-color: #fcfcfc;
+    opacity: 0.6;
+    background-image:  linear-gradient(135deg, #000000 25%, transparent 25%), linear-gradient(225deg, #000000 25%, transparent 25%), linear-gradient(45deg, #000000 25%, transparent 25%), linear-gradient(315deg, #000000 25%, #fcfcfc 25%);
+    background-position:  18px 0, 18px 0, 0 0, 0 0;
+    background-size: 36px 36px;
+    background-repeat: repeat;}
+
+    .cardbg{
+      background-image: url("https://i.pinimg.com/736x/b9/4e/f7/b94ef7578bc48b582f863c63629bd9aa.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+    }
