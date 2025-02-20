@@ -145,9 +145,9 @@ const Dashboard = () => {
       
 
       <Tabs defaultValue="dashboard" className="flex-[1] flex flex-col ">
-  <TabsList className="absolute top-9 right-32 w-fit flex gap-4 p-4">
+      <TabsList className="absolute z-50 top-9 right-32 w-fit flex gap-4 p-4">
     <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="overview">My wallet</TabsTrigger>
   </TabsList>
   <TabsContent value="dashboard" className="overflow-hidden flex "><Mainsidebar />
       <div className=" w-[100%] h-[100%] flex">
@@ -155,7 +155,7 @@ const Dashboard = () => {
     <div className="flex-[0.7]  bg-transparent flex flex-col justify-start items-start p-4 h-screen relative">
      
       <div className="flex mt-3 mx-auto items-center w-[80%] justify-between">
-        <h1 className="text-white text-xl">Weekly Pinned</h1>
+        <h1 className="text-white text-xl">Market</h1>
         <Button variant="ghost" className='text-[#2647eb]'>view all</Button>
       </div>
 

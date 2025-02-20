@@ -275,18 +275,18 @@ function Overview() {
           </div>
 
           <div className="grid grid-cols-2  mb-8 bg-[#0a0b15] rounded-2xl border border-neutral-700">
-            <button className="flex flex-col border-r border-neutral-700 items-center justify-center p-8 hover:bg-[#22234A] transition-colors">
+            <Link to="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=google.com" className="flex flex-col border-r border-neutral-700 items-center justify-center p-8 hover:bg-[#22234A] transition-colors">
               <div className="w-12 h-12 rounded-full bg-[#2A2B4A] flex items-center justify-center mb-2">
                 <Plus className="w-6 h-6" />
               </div>
               <span>Add</span>
-            </button>
-            <button className="flex flex-col items-center justify-center p-8  hover:bg-[#22234A] transition-colors">
+            </Link>
+            <Link to="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=google.com" className="flex flex-col items-center justify-center p-8  hover:bg-[#22234A] transition-colors">
               <div className="w-12 h-12 rounded-full bg-[#2A2B4A] flex items-center justify-center mb-2">
                 <ArrowDown className="w-6 h-6" />
               </div>
               <span>Withdraw</span>
-            </button>
+            </Link>
           </div>
 
           <button className="w-full py-2 bg-white text-black rounded-xl hover:bg-gray-100 transition-colors font-medium">

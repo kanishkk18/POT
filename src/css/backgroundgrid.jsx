@@ -1,23 +1,8 @@
-"use client";
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-export default function BackgroundCellAnimation  () {
-  return (
-    <div className="relative h-fit bg-black flex justify-center overflow-hidden">
-      <BackgroundCellCore />
-      <div className="relative z-50 mt-40 pointer-events-none select-none">
-      <h1 className="md:text-2xl lg:text-6xl max-w-5xl font-medium pb-0 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400 pointer-events-none">
-$ 5        </h1>
-        <h1 className="md:text-2xl lg:text-3xl max-w-5xl font-medium pb-0 text-start bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400 pointer-events-none">
-        Fey provides premium, ad-free data sourced from industry giants like Nasdaq and S&P Global. We prioritize quality and continually enhance our features with regular updates. Unlike freemium platforms with inaccurate data and sponsored content, or costly institutional platforms, Fey strikes the perfect balance of affordability and excellence.
-        </h1>
-      </div>
-    </div>
-  );
-};
 
-const BackgroundCellCore = () => {
+export default function  BackgroundCellCore () {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const ref = useRef(null);
 
@@ -29,7 +14,7 @@ const BackgroundCellCore = () => {
     });
   };
 
-  const size = 300;
+  const size = 1000;
 
   return (
     <div

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'sonner';
 import { LoginContext } from "@/context/LoginContext";
 import GridMotion from '@/css/gridmotion';
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 // Sample image items
 const items = [
@@ -67,48 +69,37 @@ const SignIn = () => {
         </h1>
 
         <form
-          className="flex flex-col items-center w-full"
+          className="flex flex-col gap-2 items-start w-full"
            // Prevent default form submission
         >
-        
-          <input
-            className="w-full px-4 py-3 mb-4 rounded-[16px] bg-neutral-950 text-white"
+        <Label className='text-white text-md'>Email</Label>
+          <Input
+            className="w-full px-4 border border-neutral-700 py-5 mb-4 rounded-[12px] bg-neutral-950 text-white"
             type="email"
             placeholder="Enter email address"
             required
             value=""
            
           />
-
-          <input
-            className="w-full px-4 py-3 mb-4 rounded-[16px] bg-neutral-950 text-white"
+<Label className="text-white text-md" >Password</Label>
+          <Input
+            className="w-full px-4 border border-neutral-700 py-5 mb-4 rounded-[12px] bg-neutral-950 text-white"
             type="password"
             placeholder="Password"
             required
             value=""
            
           />
-
-  <div className="flex items-center w-full mb-5">
-            <div className="flex-grow h-px bg-neutral-700"></div>
-            <span className="text-neutral-500 text-sm mx-2">OR</span>
-            <div className="flex-grow h-px bg-neutral-700"></div>
-          </div>
-
-<div className="w-full text-center mb-4">
-            <input type="text" placeholder="Referal code" className="w-full bg-transparent text-white font-semibold border-2 pl-4 border-neutral-800 rounded-[16px] py-3 mb-4 hover:bg-neutral-800 hover:text-black transition duration-500 ease-in"/>
-          </div>
-
-        
-
           <button
-            className="w-full bg-gray-100 text-black py-3 rounded-[16px] font-semibold hover:bg-[#1f1f1f] hover:text-white transition duration-500 ease-in"
+            className="w-full bg-gray-100 text-black py-3 rounded-[12px] font-semibold hover:bg-[#1f1f1f] hover:text-white transition duration-500 ease-in"
             type="button" // Set type to button to avoid form submission
              // Call postData on button click
           >
             Continue
           </button>
         </form>
+        <Link to="/signup" className="text-neutral-600 text-center pt-2" >Don't have an account?
+       <span className="text-white "> Sign up</span></Link>
       </div>
     </div>
   );

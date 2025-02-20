@@ -58,15 +58,16 @@ function FloatingNav({ className }) {
   // const handleNavClick = (to) => {
   //   const token = localStorage.getItem("jwt");
   //   if (!token) {
-      
   //     navigate("/loginpage");  // Redirect to login page if not logged in
   //   } else {
   //     navigate(to);  // Navigate to the intended route if logged in
   //   }
   // };
 
+
+
   const navLinks = [
-    { name: "Features", to: "/", restricted: false },
+    { name: "Features", to: "/dashboard", },
     { name: "Pricing", to: "/Pricing" },
     { name: "Support", to: "/support" },
   ];
@@ -123,7 +124,7 @@ function FloatingNav({ className }) {
           <img
             src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739999777/POT/erphxcw9ionbm1f6cvne.jpg"
             alt="logo"
-            className="text-black p-1 rounded-lg h-12 w-12"
+            className="text-black p-1 rounded-lg h-[52px] w-[52px]"
           />
         </Link>
 

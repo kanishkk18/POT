@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const transition = {
   duration: 0,
@@ -15,7 +16,7 @@ export const GoogleGeminiEffect = ({
   className
 }) => {
   return (
-    (<div className={cn("sticky top-32", className)}>
+    (<div className={cn("sticky top-32 w-full", className)}>
       <p
         className="text-lg md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
         {title || `Build For The Future`}
@@ -27,10 +28,10 @@ export const GoogleGeminiEffect = ({
       </p>
       <div
         className="w-full h-[890px] -top-50 md:-top-36  flex items-center justify-center bg-red-transparent absolute ">
-        <button
+        <Link to="/loginpage"
           className="font-bold  bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
           Get Started now
-        </button>
+        </Link>
       </div>
       <svg
         width="1440"

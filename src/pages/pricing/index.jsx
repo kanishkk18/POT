@@ -1,8 +1,7 @@
 
 import "@/css/style.css";
 import Navbartwo from "@/pages/navbar/Navbar";
-import BackgroundCellAnimation from "@/css/backgroundgrid";
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
+import { useMotionValue, motion, } from "framer-motion";
 import React, { useState } from "react";
 import { useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
@@ -13,12 +12,15 @@ import WorldMap from "@/components/ui/world-map";
 import Lamp from "@/components/ui/lamp";
 import { useSpring, animated } from '@react-spring/web';
 import Aurora from '@/components/ui/Aurora';
-import ScrollReveal from '@/components/ui/scrollreveal';
+import FadeContent from '@/components/ui/fadecontent'
+
 
 export default function MeteorsDemo() {
   const containerRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const ref = React.useRef(null);
+  const { scrollY } = useScroll(); 
+  const height = useTransform(scrollY, [0, 100], ["60vh", "50vh"]); 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -63,7 +65,7 @@ export default function MeteorsDemo() {
       <Navbartwo/>
 
       <div
-      className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative overflow-clip"
+      className="h-[250vh] bg-black min-w-full dark:border dark:border-white/[0.1] rounded-md relative overflow-clip"
       ref={ref}
     >
       <GoogleGeminiEffect
@@ -77,7 +79,8 @@ export default function MeteorsDemo() {
       />
     </div>
 
-<div className=""><Aurora
+<div className="">
+  <Aurora
   colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
   speed={10}
   className="h-[20vh]"
@@ -88,6 +91,7 @@ export default function MeteorsDemo() {
         ref={containerRef}
         className="sticky top-0 h-screen flex items-center justify-center"
       >
+
         <animated.div
           style={{
             transform: y.to(y => `translateY(${y}px) scale(${scale})`),
@@ -95,15 +99,18 @@ export default function MeteorsDemo() {
           className="relative transition-transform duration-300"
         >
           <animated.h1  className=" text-3xl font-bold text-white text-center">
-          What it costs.
+          Join our Community with just
           </animated.h1>
-          <img
-            src="https://www.fey.com/marketing/_next/static/media/hero-30_2x.5eb5a315.png"
-            alt="Scaling content"
-            className="w-full h-fit max-w-4xl mb-20 rounded-2xl shadow-xl"
-          />
+          <div className="flex justify-center items-start px-10 max-w-3xl">
+          <img src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740067658/POT/ezj59eiujl8b7jauuvyw.png"
+      alt="Scaling content"
+      className="w-fit  mb-20 rounded-2xl shadow-xl"
+      style={{ height }}
+    />
+          
+          </div>
         </animated.div>
-        
+      
       </div>
 
       {/* Next content section */}
@@ -111,12 +118,11 @@ export default function MeteorsDemo() {
         scrollProgress > 0.9 ? 'opacity-100' : 'opacity-1'
       }`}>
         <div className="container  mx-auto max-w-4xl text-start my-28">
-        <animated.h1 className=" text-xl py-4 font-bold text-white/15 text-center">
+        <animated.h1 className=" text-xl py-4 font-bold text-white/35 text-center">
        
-       $5/month or $55/year.
+       $5/month or $60/year.
                  </animated.h1>
-          <h2 className="text-3xl font-bold mb-6 text-start pointer-events-none whitespace-pre-wrap bg-gradient-to-r from-purple-400 to-yellow-200 bg-clip-text  leading-none text-transparent "> Fey provides premium, ad-free data sourced from industry giants like Nasdaq and S&P Global. We prioritize quality and continually enhance our features with regular updates. Unlike freemium platforms with inaccurate data and sponsored content, or costly institutional platforms, Fey strikes the perfect balance of affordability and excellence.
-          NasdaqSP GlobalOpenAI</h2>
+          <h2 className="text-3xl font-bold pb-6 text-start pointer-events-none  bg-gradient-to-r from-purple-400 to-yellow-200 bg-clip-text  leading-none text-transparent "> POT is a thriving community dedicated to crypto traders, offering reliable insights and verified transaction data. We focus on transparency and accuracy, empowering traders with real-time information and peer-reviewed analytics. Unlike platforms with unverified claims or high subscription fees, POT provides an affordable, trustworthy space where traders can connect, share, and grow.</h2>
         
         </div>
       </div>
@@ -128,7 +134,7 @@ export default function MeteorsDemo() {
       
     <div className=" w-full justify-center gap-6 mt-20 min-h-screen items-center flex">
   
-  <div className="preview flex min-h-[350px] bg-neutral-950 w-full justify-center p-2 sm:p-10 items-center"><div className="w-full max-w-7xl mx-auto  px-4 md:px-8"><div className="relative w-fit mx-auto p-4 flex items-center justify-center"><div className="absolute inset-0 h-full border border-neutral-200 dark:border-neutral-900 w-full" ><div className="absolute -top-1 -left-1 h-2 w-2 dark:bg-neutral-950 bg-neutral-200 opacity-1 will-change-auto" ></div><div className="absolute -top-1 -right-1 h-2 w-2 dark:bg-neutral-950 bg-neutral-200 opacity-100 will-change-auto"></div><div className="absolute -bottom-1 -left-1 h-2 w-2 dark:bg-neutral-900 bg-neutral-200 opacity-100 will-change-auto" ></div><div className="absolute -bottom-1 -right-1 h-2 w-2 dark:bg-neutral-900 bg-neutral-200 opacity-100 will-change-auto" ></div></div><h2 className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight text-neutral-8000 text-neutral-100 ">Value is what you get.</h2></div><p className="max-w-xl text-sm text-neutral-600 text-center mx-auto mt-4 dark:text-neutral-400">For $5 a month or $50 a year, you'll unlock access to AI driven market insights, real-time asset pricing, a lightning-fast screener, ad-free news and much more.</p><div className="mt-20  grid cols-1 md:grid-cols-5 gap-4 md:auto-rows-[25rem]"> <div className="group isolate relative rounded-2xl bg-black shadow-[0_1px_1px_rgba(0,0,0,0.05),0_4px_6px_rgba(34,42,53,0.04),0_24px_68px_rgba(47,48,55,0.05),0_2px_3px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-between md:col-span-3">
+  <div className="preview flex min-h-[350px] bg-neutral-950 w-full justify-center p-2 sm:p-10 items-center"><div className="w-full max-w-7xl mx-auto  px-4 md:px-8"><div className="relative w-fit mx-auto p-4 flex items-center justify-center"><div className="absolute inset-0 h-full border border-neutral-200 dark:border-neutral-900 w-full" ><div className="absolute -top-1 -left-1 h-2 w-2 dark:bg-neutral-950 bg-neutral-200 opacity-1 will-change-auto" ></div><div className="absolute -top-1 -right-1 h-2 w-2 dark:bg-neutral-950 bg-neutral-200 opacity-100 will-change-auto"></div><div className="absolute -bottom-1 -left-1 h-2 w-2 dark:bg-neutral-900 bg-neutral-200 opacity-100 will-change-auto" ></div><div className="absolute -bottom-1 -right-1 h-2 w-2 dark:bg-neutral-900 bg-neutral-200 opacity-100 will-change-auto" ></div></div><h2 className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight text-neutral-8000 text-neutral-100 ">Value is what you get.</h2></div><p className="max-w-xl text-sm text-neutral-600 text-center mx-auto mt-4 dark:text-neutral-400">For $5 a month or $60 a year, you'll unlock access to AI driven market insights, real-time asset pricing, a lightning-fast screener, ad-free news and much more.</p><div className="mt-20  grid cols-1 md:grid-cols-5 gap-4 md:auto-rows-[25rem]"> <div className="group isolate relative rounded-2xl bg-black shadow-[0_1px_1px_rgba(0,0,0,0.05),0_4px_6px_rgba(34,42,53,0.04),0_24px_68px_rgba(47,48,55,0.05),0_2px_3px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-between md:col-span-3">
   <video src="https://cdn.dribbble.com/userupload/12883516/file/original-736c88e6feac926f0e48226976d73dba.mp4" autoPlay muted loop className="w-full h-full object-cover"/>
   <div className="-pt-32 ml-6 h-40 relative">
     <h3 className="font-sans text-2xl font-medium tracking-tight absolute bottom-0 left-0 text-neutral-100">

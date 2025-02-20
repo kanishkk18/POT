@@ -1,91 +1,120 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { BoxesIcon } from 'lucide-react';
+import { BorderBeam } from "@/components/magicui/border-beam";
+import Aurora from '@/components/ui/Aurora';
+
 
 
 export default function SignUp() {
-  const navigate = useNavigate()
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("")
-  const [userName, setUserName] = useState("")
-  const [password, setPassword] = useState("")
 
-  // Toast functions
-  const notifyA = (msg) => toast.error(msg)
-  const notifyB = (msg) => toast.success(msg)
-
-  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-
-  const postData = () => {
-    //checking email
-    if (!emailRegex.test(email)) {
-      notifyA("Invalid email")
-      return
-    } else if (!passRegex.test(password)) {
-      notifyA("Password must contain at least 8 characters, including at least 1 number and 1 includes both lower and uppercase letters and special characters for example #,?,!")
-      return
-    }
-
-    // Sending data to server
-    fetch("http://localhost:5000/signup", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        userName: userName,
-        email: email,
-        password: password
-
-      })
-    }).then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          notifyA(data.error)
-        } else {
-          notifyB(data.message)
-          navigate("/loginpage")
-        }
-        console.log(data)
-      })
-  }
 
   return (
-        <div className="signup">
-        <div className="signup-container">
-          <p className="signup-top-p">Sign Up</p>
-            <div className="signup-form">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      
+      {/* Background gradient effect */}
+     
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-transparent to-orange-900 opacity-50" />
+       <Aurora
+      colorStops={["#262626", "#FF94B4", "#252843"]}
+      speed={3}
+      className="h-[20vh] absolute "
+    />
+      <div className="relative -mt-16 z-10 min-h-screen flex flex-col items-center justify-center px-4">
+     <div className="w-full max-w-md bg-neutral-950 backdrop-blur-xl rounded-2xl p-8 space-y-4 relative overflow-hidden">
+     <BorderBeam/>
 
-            <div>
-                <input  type="text" placeholder="Full Name" Name="Full Name" id="Fullname" value={name}
-                onChange={(e) => { setName(e.target.value)}}
-                />
+          {/* Logo */}
+          <div className="flex justify-center relative">
+          <img
+          className="h-14 w-14 mx-auto my-5 rounded-lg"
+          src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739999777/POT/erphxcw9ionbm1f6cvne.jpg"
+          alt="Login Logo"
+        />
+          </div>
+
+          {/* Title */}
+          <h1 className="text-2xl font-bold text-center text-white relative">
+            Sign Up to POT
+          </h1>
+
+          {/* Form */}
+          <form  className="space-y-3 relative">
+          <div className="space-y-1">
+              <label className="text-sm text-gray-400" htmlFor="email">
+                User Name
+              </label>
+              <input
+                type="name"
+                id="name"
+                value=""
+                className="w-full px-4 py-2 bg-black/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="User name"
+              />
             </div>
 
-            <div>
-                <input type="text" placeholder="Username" Name="Username" id="Username" value={userName}
-                onChange={(e) =>{ setUserName(e.target.value)}}
-                />
-            </div>
-            <div>
-                <input type="email" value={email} placeholder="Email" Name="Email" id="email" onChange={(e) =>
-                    {setEmail(e.target.value)}}
-                />
-            </div>
-            <div>
-                <input type="password" placeholder="password" 
-                value={password} onChange={(e) => {setPassword(e.target.value)}}
-                />
+            <div className="space-y-1">
+              <label className="text-sm text-gray-400" htmlFor="email">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value=""
+                className="w-full px-4 py-2 bg-black/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="name@work-email.com"
+              />
             </div>
 
-                <button type="submit" className="signup-button" onClick={()=>{postData()}}>Sign up</button>
+ <div className="space-y-1">
+              <label className="text-sm text-gray-400" htmlFor="email">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value=""
+                
+                className="w-full px-4 py-2 bg-black/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="******"
+              />
+            </div>
 
-                <p className="signup-para">Already have any account? <Link to="/loginpage">Sign In</Link></p>
-                </div>
+            <div className="space-y-2">
+              <label className="text-sm text-gray-400" htmlFor="email">
+                Referal code
+              </label>
+              <input
+                type="text"
+                id="text"
+                value=""
+               
+                className="w-full px-4 py-2 bg-black/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="Referal code"
+              />
+            </div>
 
+            <button
+              type="submit"
+              className="w-full py-2 pt-4 px-4 bg-gradient-to-r from-purple-500 to-orange-500 text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+            >
+              Sign Up
+            </button>
+            
+          </form>
         </div>
+
+        {/* Footer Links */}
+        <div className="mt-6 text-sm text-gray-500">
+          already have an account?{' '}
+          <Link to="/loginpage" className="text-purple-500 hover:text-purple-400">
+            Sign in
+          </Link>
+        </div>
+
+      
+      </div>
     </div>
   );
 }

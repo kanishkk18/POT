@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../navbar/Navbar';
 import './Home.css';
 import tick from '@/Assets/tick.svg';
@@ -8,7 +8,7 @@ import Footer from '@/css/footer';
 import MacbookScroll from '@/css/scroollaptop';
 import StickyScroll from '@/css/stickyscro';
 import BentoDemo from '@/css/Bentogrid';
-import Lamp from "@/components/ui/lamp";
+import Lamp, { LampContainer } from "@/components/ui/lamp";
 import PromoCard from "@/css/Promocard";
 import Clients from "@/css/Clients";
 import Hero from '@/css/Hero';
@@ -21,6 +21,8 @@ import HeroVideoDialog from '@/css/HeroVideoDialog';
 import Keyboard from '@/components/ui/keyboard';
 import { CardStack } from '@/components/ui/card-stack';
 import { cn } from "@/lib/utils";
+import { Link } from 'react-router-dom';
+
 
 const content = [
   
@@ -131,6 +133,8 @@ const CARDS = [
 
 
 export default function Home() {
+  const [isAppleHovered, setIsAppleHovered] = useState(false);
+
   return (
     <div className='bg-black overflow-x-hidden'>
       <Navbar />
@@ -147,8 +151,8 @@ export default function Home() {
         <MacbookScroll/>
       </div>
 
-      <div className="min-h-screen w-full flex justify-start px-72 items-center bg-gray-950 my-32">
-        <div className="flex justify-start">
+      <div className="min-h-screen w-full flex justify-start px-72 items-center z-50 bg-gray-950 my-32">
+        <div className="flex justify-start ">
       <Keyboard/>
       </div>
       <div className=" h-[400px] w-[450px] rounded-2xl absolute right-60 px-8 bg-neutral-800 flex justify-center items-center">
@@ -190,7 +194,7 @@ export default function Home() {
       </div> */}
 
 
-<div className="my-10">
+<div className=" bg-neutral-600">
     <Laptop/>
 </div>
 
@@ -222,11 +226,110 @@ export default function Home() {
         <PromoCard />
       </div>
       {/* <Clients/> */}
-      <div className="border-b border-neutral-700">
-        <Lamp />
-        
-      </div> 
-      <Footer />
+      
+      <section className="bg-black py-16 ">
+      <LampContainer className="min-h-[35vh] "/>
+      <div className=" max-w-3xl lg:max-w-7xl mx-auto px-4">
+        <div className="flex flex-col items-center mb-8">
+          <div className="mb-8">
+            <button className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors">
+              <span>Watch the guided tour</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0"
+              >
+                <path
+                  d="M21.25 12C21.25 17.1086 17.1086 21.25 12 21.25C6.89137 21.25 2.75 17.1086 2.75 12C2.75 6.89137 6.89137 2.75 12 2.75C17.1086 2.75 21.25 6.89137 21.25 12Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M10.25 14.75V9.25L14.75 12L10.25 14.75Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-8">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-300">
+              Crypto is finally effortless.
+            </span>
+          </h2>
+
+          <Link to="/loginpage"  onMouseEnter={() => setIsAppleHovered(true)}
+            onMouseLeave={() => setIsAppleHovered(false)} className="border text-white px-5 py-2 rounded-full font-semibold hover:text-gray-900 hover:bg-gray-100 transition-colors">
+      Join it today
+          </Link>
+        </div>
+
+        <div className="relative h-[297px] w-full">
+          {/* Light effect */}
+          <div className="absolute inset-0 flex justify-center">
+            <img
+              src="https://www.fey.com/marketing/_next/static/media/light.2e8d1e67.svg"
+              alt=""
+              className="w-[1140px] h-full object-cover"
+            />
+          </div>
+
+          {/* Shadow */}
+          <img
+            src="https://www.fey.com/marketing/_next/static/media/shadow.438a35a1.svg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Laptop closed off */}
+          <img
+            src="https://www.fey.com/marketing/_next/static/media/laptop-closed-off_4x.434654c4.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Laptop closed on */}
+          <div className="absolute inset-0">
+            <img
+              src="https://www.fey.com/marketing/_next/static/media/laptop-closed-on_4x.06eb6128.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Apple images with hover effect */}
+          <div 
+            className="absolute inset-0"
+            onMouseEnter={() => setIsAppleHovered(true)}
+            onMouseLeave={() => setIsAppleHovered(false)}
+          >
+            <img
+              src="https://www.fey.com/marketing/_next/static/media/apple-unhovered_4x.f4daffa8.png"
+              alt=""
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
+                isAppleHovered ? 'opacity-0' : 'opacity-100'
+              }`}
+            />
+            <img
+              src="https://www.fey.com/marketing/_next/static/media/apple-hovered_4x.981e3b1f.png"
+              alt=""
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
+                isAppleHovered ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+      
     </div>
   )
 }
