@@ -4,21 +4,21 @@ import React from 'react';
 
 function Intelligence() {
     return (
-        <div className="min-h-[90vh] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:[border:1px_solid_rgba(255,255,255,.1)] my-5 bg-black/40 rounded-[80px] mx-32 flex items-center justify-center p-4">
+        <div className="min-h-[90vh] mx-2 [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] [border:1px_solid_rgba(255,255,255,.1)] my-5 bg-black/40 rounded-[20px] md:rounded-[70px] md:mx-24 md:px-8 md:flex items-center justify-center md:p-4 p-0">
         <div className=" p-4 w-full grid lg:flex gap-20 lg:justify-between items-center">
-          <div className="space-y-6 w-[35%]">
+          <div className="space-y-6 md:w-[35%] flex flex-col justify-center md:text-start text-center items-center md:items-start">
             <div className="h-12 w-12 bg-zinc-800 rounded-lg flex items-center justify-center">
               <Laptop className="h-6 w-6 text-zinc-400" />
             </div>
-            <h1 className="text-3xl font-semibold text-zinc-100">Intelligence, delivered to you.</h1>
+            <h1 className="text-2xl md:text-3xl font-semibold text-zinc-100">Intelligence, delivered to you.</h1>
             <p className="text-md text-zinc-400">
             Get a tailored Monday morning brief directly in your inbox, crafted by your virtual personal analyst, spotlighting essential watchlist stories and earnings for the week ahead.
             </p>
           </div>
           
-          <div className="relative flex h-full w-[70%] ">
+          <div className="relative flex md:h-full md:w-[70%] ">
           <div className="absolute rounded-[2rem] blur-2xl opacity-20" />
-            <Card className="-mr-72 p-4 mt-14 max-h-[70vh] min-w-[30vw] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] [border:1px_solid_rgba(255,255,255,.1)] border-collapse w-[100%] bg-black/60 backdrop-blur rounded-[1.5rem] overflow-hidden">
+            <Card className="-mr-72 p-4 md:flex hidden mt-14 max-h-[70vh] min-w-[30vw] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] [border:1px_solid_rgba(255,255,255,.1)] border-collapse w-[100%] bg-black/60 backdrop-blur rounded-[1.5rem] overflow-hidden">
              
             <div className=" text-white p-4 rounded-xl max-w-3xl mx-auto text-sm">
       <h2 className="text-lg font-semibold">Good Morning, Warren</h2>
@@ -50,7 +50,7 @@ function Intelligence() {
             
             <div className="absolute -mr-10 inset-0  rounded-[2rem] blur-2xl opacity-20" />
   <div className="border-zinc-800  border relative mx-auto backdrop-blur-[90px] rounded-[30px] p-4 w-fit">
-            <Card className="p-4 min-h-[76vh] min-w-[28vw] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] [border:1px_solid_rgba(255,255,255,.1)] border-collapse w-[100%] bg-black/60 backdrop-blur rounded-[1.5rem] overflow-hidden">
+            <Card className="p-4 md:min-h-[76vh] min-w-[28vw] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] [border:1px_solid_rgba(255,255,255,.1)] border-collapse w-[100%] bg-black/60 backdrop-blur rounded-[1.5rem] overflow-hidden">
             <div className=" text-white p-4 rounded-xl max-w-3xl mx-auto text-sm">
       <h2 className="text-lg font-semibold">Watchlist performance</h2>
       <p className="text-gray-400 mt-2">

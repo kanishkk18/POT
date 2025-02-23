@@ -8,7 +8,7 @@ import {FamilyButton} from "./familyButton"
 export function FamilyButtonDemo() {
   return (
    
-      <div className="fixed bottom-8 right-24 ">
+      <div className="absolute bottom-8 right-24 ">
         <FamilyButton>
         <div className=" h-[600px]  rounded-2xl  flex flex-col">
       {/* Header */}

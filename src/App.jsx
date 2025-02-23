@@ -11,6 +11,8 @@ import { LoginContext } from "./context/LoginContext";
 import { Toaster } from "sonner";
 import Modal from "./css/modal";
 import Dashboard from "./pages/dashboard";
+import AdminDash from "./pages/admindash/index"
+import Wallet from "./pages/overview/page"
 
 
 const App = () => {
@@ -30,6 +32,8 @@ const App = () => {
       <Route path="/pricing" element={<Pricing/>}/>
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/admin/dashhboard" element={<AdminDash/>}/>
+      <Route path="/wallet" element={<Wallet/>}/>
       <Route path="/*" element={<Navigate to='/Home'/>}/>
       </Routes>
      

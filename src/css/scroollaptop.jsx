@@ -55,7 +55,8 @@ const MacbookScroll = ({
   return (
     (<div
       ref={ref}
-      className="max-h-[100vh] w-full md:min-h-[295vh] flex flex-col items-center py-0 md:py-20 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-50">
+      className="min-h-[200vh]  md:w-full md:min-h-[310vh] flex flex-col items-center justify-start flex-shrink-0 [perspective:800px] md:scale-95 scale-50 sm:scale-90
+">
      
      <motion.h2
         style={{
@@ -146,13 +147,13 @@ export const Lid = ({
         className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2">
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
         <div className="h-full w-full">
-          {/* <img className="object-cover object-left-top absolute rounded-lg inset-0 min-h-full w-full" src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740071301/POT/pq72aiaan8nsknhmhhjw.png" alt="" /> */}
-        <HeroVideoDialog
+          <img className="object-cover object-left-top absolute rounded-lg inset-0 min-h-full w-full" src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740071301/POT/pq72aiaan8nsknhmhhjw.png" alt="" />
+        {/* <HeroVideoDialog
         animationStyle="from-bottom"
         videoSrc="https://www.youtube.com/embed/wQJagH3iJkI?si=naWbhbemn7gklrHe"
         thumbnailSrc="https://res.cloudinary.com/dna3hwzre/image/upload/v1740071301/POT/pq72aiaan8nsknhmhhjw.png"
         thumbnailAlt="Hero Video"
-          className="object-cover object-left-top absolute rounded-lg inset-0 min-h-[100%] w-full" />
+          className="object-cover object-left-top absolute rounded-lg inset-0 min-h-[100%] w-full" /> */}
           </div> 
       </motion.div>
     </div>)

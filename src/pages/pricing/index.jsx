@@ -13,7 +13,7 @@ import Lamp from "@/components/ui/lamp";
 import { useSpring, animated } from '@react-spring/web';
 import Aurora from '@/components/ui/Aurora';
 import FadeContent from '@/components/ui/fadecontent'
-
+import Footer from "@/css/footer"
 
 export default function MeteorsDemo() {
   const containerRef = useRef(null);
@@ -98,13 +98,13 @@ export default function MeteorsDemo() {
           }}
           className="relative transition-transform duration-300"
         >
-          <animated.h1  className=" text-3xl font-bold text-white text-center">
+          <animated.h1  className="text-2xl md:text-3xl px-4 font-bold text-white text-center">
           Join our Community with just
           </animated.h1>
           <div className="flex justify-center items-start px-10 max-w-3xl">
           <img src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740067658/POT/ezj59eiujl8b7jauuvyw.png"
       alt="Scaling content"
-      className="w-fit  mb-20 rounded-2xl shadow-xl"
+      className="md:w-fit w-44 h-fit  md:mb-20 rounded-2xl shadow-xl"
       style={{ height }}
     />
           
@@ -117,12 +117,9 @@ export default function MeteorsDemo() {
       <div className={`transition-opacity  duration-500  ${
         scrollProgress > 0.9 ? 'opacity-100' : 'opacity-1'
       }`}>
-        <div className="container  mx-auto max-w-4xl text-start my-28">
-        <animated.h1 className=" text-xl py-4 font-bold text-white/35 text-center">
-       
-       $5/month or $60/year.
-                 </animated.h1>
-          <h2 className="text-3xl font-bold pb-6 text-start pointer-events-none  bg-gradient-to-r from-purple-400 to-yellow-200 bg-clip-text  leading-none text-transparent "> POT is a thriving community dedicated to crypto traders, offering reliable insights and verified transaction data. We focus on transparency and accuracy, empowering traders with real-time information and peer-reviewed analytics. Unlike platforms with unverified claims or high subscription fees, POT provides an affordable, trustworthy space where traders can connect, share, and grow.</h2>
+        <div className="container  mx-auto max-w-4xl text-start my-24 md:my-28">
+        
+          <h2 className="text-md lg:text-3xl pb-2 font-bold md:pb-8 text-start pointer-events-none  bg-gradient-to-r from-purple-400 to-yellow-200 bg-clip-text  leading-none text-transparent "> POT is a thriving community dedicated to crypto traders, offering reliable insights and verified transaction data. We focus on transparency and accuracy, empowering traders with real-time information and peer-reviewed analytics. Unlike platforms with unverified claims or high subscription fees, POT provides an affordable, trustworthy space where traders can connect, share, and grow.</h2>
         
         </div>
       </div>
@@ -211,11 +208,13 @@ export default function MeteorsDemo() {
   
     </div>
 
-     <div className="border-b max-h-screen border-neutral-700">
+     <div className="border-b max-h-screen  border-neutral-800">
             <Lamp />
             
           </div> 
-    
+    <div className="border-t border-neutral-700">
+  <Footer/>
+  </div>
     </div>
   );
 }

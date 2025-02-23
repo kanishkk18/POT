@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Slice } from "lucide-react";
 
 const CryptoList = () => {
   const [coins, setCoins] = useState([]);
@@ -30,13 +31,13 @@ const CryptoList = () => {
 
   return (
     <div className=" text-white rounded-lg shadow-lg">
-      <h2 className="text-xl font-bold mb-4">Top Cryptocurrencies</h2>
+      <h2 className="text-xl font-bold mb-4 pl-2">Top Cryptocurrencies</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-gray-800">
-            <th className="p-2 text-left">Coin</th>
-            <th className="p-2">Price</th>
-            <th className="p-2 flex">Change (24h)</th>
+            <th className="p-1 text-left">Coin</th>
+            <th className="p-1">Price</th>
+            <th className="p-1 flex">Change (24h)</th>
           </tr>
         </thead>
         <tbody>
@@ -44,7 +45,7 @@ const CryptoList = () => {
             <tr key={coin.id} className="border-t border-gray-700">
               <td className="p-2 flex items-center">
                 <img src={coin.image} alt={coin.name} className="w-6 h-6 mr-2" />
-                {coin.name}
+                {coin.name.slice(0, 10)}...
               </td>
               <td className="p-2">${coin.current_price.toFixed(2)}</td>
               <td

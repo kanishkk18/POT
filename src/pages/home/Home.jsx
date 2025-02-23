@@ -11,10 +11,9 @@ import BentoDemo from '@/css/Bentogrid';
 import Lamp, { LampContainer } from "@/components/ui/lamp";
 import PromoCard from "@/css/Promocard";
 import Clients from "@/css/Clients";
-import Hero from '@/css/Hero';
+
 import { BorderBeam } from '@/components/magicui/border-beam';
 import Laptop from "@/css/laptop";
-import Phone from "@/css/phone";
 import ContainerTab from "../../components/ui/container-scroll-animation";
 import Intelligence from '@/css/intelligence';
 import HeroVideoDialog from '@/css/HeroVideoDialog';
@@ -31,15 +30,23 @@ const content = [
     description:
       "POT seamlessly tracks your Currency and scouts new opportunities, keeping you informed about earnings dates and key performance indicators.",
     content: (
-      <div
-        className="h-full w-full  flex items-center justify-center text-white">
-        <img
-          src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739800188/POT/rl61gg2deng8ms4beyhj.png"
-          width={400}
-          height={400}
-          className="h-full w-full object-cover  rounded-tl-md rounded-br-md"
-          alt="linear board demo" />
-      </div>
+     <div className="h-full w-full flex items-center justify-center text-white">
+  {/* Image for Laptops (md and above) */}
+  <img
+    src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739800188/POT/rl61gg2deng8ms4beyhj.png"
+    width={400}
+    height={400}
+    className="hidden md:block h-full w-full object-cover rounded-tl-md rounded-br-md"
+    alt="Linear board demo"
+  />
+  
+  {/* Image for Small Screens (below md) */}
+  <img
+    src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740170498/POT/komlfdu5bfuz8uotkbhe.png"
+    className="block md:hidden h-full w-full object-cover rounded-tl-md rounded-br-md"
+    alt="Linear board demo"
+  />
+</div>
     ),
   },
   {
@@ -47,15 +54,24 @@ const content = [
     description:
       "POT generates a personalized feed for you, providing direct access to market news and events. Saving you hundreds of hours in research time.",
     content: (
-      <div
-        className="h-full w-full flex items-center justify-center text-white">
-        <img
-          src="https://i.pinimg.com/736x/44/18/94/441894ddfcd410952a19ba5716802019.jpg"
-          width={400}
-          height={400}
-          className="h-full w-full object-cover rounded-tl-md rounded-br-md"
-          alt="linear board demo" />
-      </div>
+      <div className="h-full w-full flex items-center justify-center text-white">
+      {/* Image for Laptops (md and above) */}
+      <img
+        src="https://i.pinimg.com/736x/44/18/94/441894ddfcd410952a19ba5716802019.jpg"
+        width={400}
+        height={400}
+        className="hidden md:block h-full w-full object-cover rounded-tl-md rounded-br-md"
+        alt="Linear board demo"
+      />
+      
+      {/* Image for Small Screens (below md) */}
+      <img
+        src="https://i.pinimg.com/736x/31/10/47/311047d39112a80b83298b966d87310a.jpg"
+        className="block md:hidden h-full w-full object-cover rounded-tl-md rounded-br-md"
+        alt="Linear board demo"
+      />
+    </div>
+      
     ),
   },
   {
@@ -74,6 +90,7 @@ const content = [
       </div>
     ),
   },
+  
   
 ];
 
@@ -147,51 +164,36 @@ export default function Home() {
         </span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="h-4 w-4 text-white"><path d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path d="M13 6l6 6"></path></svg></a><h1 className="bg-gradient-to-b from-black to-neutral-600 bg-clip-text py-4 text-center text-2xl text-transparent dark:from-white dark:to-[#999] md:text-4xl lg:text-7xl">Effortless Scheduling,<br /> Your Way!</h1><p className="mx-auto max-w-2xl py-4 text-center text-base text-neutral-600 dark:text-neutral-300 md:text-lg">With our state of the art, cutting edge, we are so back kinda hosting services, you can deploy your website in seconds.</p><div className="flex flex-col items-center gap-4 py-4 sm:flex-row"><a className="w-40 gap-1 rounded-full border border-[#404040] bg-gradient-to-b from-[#5B5B5D] to-[#262627] px-4 py-2 text-center text-sm text-white" href="#">Start a project</a><a className="w-40 gap-1 rounded-full border border-transparent bg-neutral-100 px-4 py-2 text-center text-sm text-black dark:bg-white" href="#">Book a call</a></div></div></div></div>
 
       */}
-      <div className="mt-20"> 
+
+      <div className="relative mx-auto w-full flex justify-center items-center  ">
+        <img className='absolute md:hidden top-24 h-60' src="https://res.cloudinary.com/dna3hwzre/image/upload/v1740173994/POT/enboloreojzvma2g88km.png" alt="" />
+      </div>
+      <div className="md:mt-20 -pt-96"> 
         <MacbookScroll/>
       </div>
 
-      <div className="min-h-screen w-full flex justify-start px-72 items-center z-50 bg-gray-950 my-32">
+      <div className="md:min-h-screen hidden w-full md:flex justify-start px-72 items-center z-50 bg-gray-950 my-32">
         <div className="flex justify-start ">
       <Keyboard/>
       </div>
-      <div className=" h-[400px] w-[450px] rounded-2xl absolute right-60 px-8 bg-neutral-800 flex justify-center items-center">
+
+      <div className=" h-[400px] w-[450px] rounded-2xl absolute right-60 px-8 bg-neutral-900 flex justify-center items-center">
       <CardStack items={CARDS} />
     </div>
       </div>
 
-      
-     
-      {/* <div className="aboutsection bg-black opacity-100">
-        <div className="ml-[60px] mr-[60px]">
-          <h2 style={{ fontSize: 40, fontWeight: 400 }}>Communicate <br /> simply and securely</h2>
-          <p style={{ color: '#4b4b4b', marginTop: 0, fontWeight: 600 }}>we are trusted by more than 500 companies</p>
+      {/* mobile keyboard */}
 
-          <div className="infocontainer">
-            <div className="infobox-one p-4 ">
-            <BorderBeam size={250} duration={12} delay={9} />
-              <img src={tick} alt="" />
-              <h3 className='font-bold'>Ease of use</h3>
-              <p className='font-[600] font-sans'>Clear and minimalist design of Conferio allows you to easily navigate the platform and use all its features. </p>
-            </div>
-            <div className="infobox-two p-4">
-              <img src={rightarrow} alt="" />
-              <h3 className='font-bold'>Login from any device</h3>
-              <p className='font-[600] font-sans'> The Conferio environment syncs with your calender system and you can attend meetings from any device. </p>
-              <BorderBeam size={250} duration={12} delay={9} />
-            </div>
-            <div className="infobox-three p-4">
-            <svg width="60px" height="60px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#2a6dc6" stroke="#2a6dc6" stroke-width="0.00000001"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path fill-rule="nonzero" d="M11 2l7.298 2.28a1 1 0 0 1 .702.955V7h2a1 1 0 0 1 1 1v2H9V8a1 1 0 0 1 1-1h7V5.97l-6-1.876L5 5.97v7.404a4 4 0 0 0 1.558 3.169l.189.136L11 19.58 14.782 17H10a1 1 0 0 1-1-1v-4h13v4a1 1 0 0 1-1 1l-3.22.001c-.387.51-.857.96-1.4 1.33L11 22l-5.38-3.668A6 6 0 0 1 3 13.374V5.235a1 1 0 0 1 .702-.954L11 2z"></path> </g> </g></svg>
-              <h3 className='font-bold'>Secure</h3>
-              <p className='font-[600] font-sans'>Reliable security setting will allow you to conduct virtual conferences without outside interferences. </p>
-              <BorderBeam size={250} duration={12} delay={9} />
-            </div>
-          </div>
-        </div>
-        <div className="mt-20 mx-16">
-          <BentoDemo />
-        </div>
-      </div> */}
+      <div className="md:min-h-screen md:hidden flex w-full justify-start items-center z-50 bg-gray-950 my-24">
+        <div className="flex justify-start ">
+     <img src="https://www.fey.com/marketing/_next/static/media/keyboard_2x.3a539063.jpg" alt="" />
+      </div>
+
+      <div className=" h-[150px] w-[150px] rounded-2xl absolute right-2 flex-col pt-6  px-8 bg-neutral-900 flex justify-center items-center">
+      <CardStack items={CARDS} />
+    </div>
+      </div>
+
 
 
 <div className=" bg-neutral-600">
@@ -210,19 +212,19 @@ export default function Home() {
       
       </div>
 
-      <div className="h-auto w-full bg-black mt-8">
+      <div className="h-auto w-full bg-black md:mt-8">
         <div className="flex flex-col justify-center items-center text-white py-16">
-        <h1 className="  text-center md:text-5xl font-bold"> 
+        <h1 className="  text-center text-3xl md:text-5xl font-bold"> 
         The magic of clarity.
         </h1>
-        <p className='text-md text-center pt-2 font-bold text-neutral-600'>Fey's Analyze tool simplifies complex financial data into clear,<br/> easy-to-understand insights. Delivered in seconds.</p>
+        <p className='text-sm md:text-base max-w-xs md:max-w-lg text-center pt-4 font-bold text-neutral-600'>Fey's Analyze tool simplifies complex financial data into clear, easy-to-understand insights. Delivered in seconds.</p>
         </div>
         <ContainerTab/>
       </div>
 
       <Intelligence/>
 
-      <div className="mx-16 my-20">
+      <div className="mx-3 pb-4 md:mx-16 my-20">
         <PromoCard />
       </div>
       {/* <Clients/> */}
@@ -273,7 +275,7 @@ export default function Home() {
         </div>
 
         <div className="relative h-[297px] w-full">
-          {/* Light effect */}
+          
           <div className="absolute inset-0 flex justify-center">
             <img
               src="https://www.fey.com/marketing/_next/static/media/light.2e8d1e67.svg"
@@ -282,21 +284,19 @@ export default function Home() {
             />
           </div>
 
-          {/* Shadow */}
           <img
             src="https://www.fey.com/marketing/_next/static/media/shadow.438a35a1.svg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* Laptop closed off */}
+          
           <img
             src="https://www.fey.com/marketing/_next/static/media/laptop-closed-off_4x.434654c4.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* Laptop closed on */}
           <div className="absolute inset-0">
             <img
               src="https://www.fey.com/marketing/_next/static/media/laptop-closed-on_4x.06eb6128.jpg"
@@ -305,7 +305,7 @@ export default function Home() {
             />
           </div>
 
-          {/* Apple images with hover effect */}
+         
           <div 
             className="absolute inset-0"
             onMouseEnter={() => setIsAppleHovered(true)}

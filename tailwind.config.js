@@ -21,9 +21,9 @@ module.exports = {
   		}
   	},
   	extend: {
-		transitionProperty: {
-			'scale': 'scale',
-		  },
+  		transitionProperty: {
+  			scale: 'scale'
+  		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
@@ -58,7 +58,16 @@ module.exports = {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-			
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
+  			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -66,10 +75,14 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		keyframes: {
-			move: {
-				"0%": { transform: "translateX(-200px)" },
-				"100%": { transform: "translateX(200px)" },
-			  },
+  			move: {
+  				'0%': {
+  					transform: 'translateX(-200px)'
+  				},
+  				'100%': {
+  					transform: 'translateX(200px)'
+  				}
+  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -132,14 +145,13 @@ module.exports = {
   			}
   		},
   		animation: {
-			move: "move 5s linear infinite",
+  			move: 'move 5s linear infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			marquee: 'marquee var(--duration) linear infinite',
   			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
   			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
   			spotlight: 'spotlight 2s ease .75s 1 forwards',
-  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
   			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
   		}
   	}

@@ -36,6 +36,7 @@ const items = [
   'https://i.pinimg.com/736x/56/9a/d8/569ad8070d1782fd86194f86ae7c501a.jpg',
   'https://i.pinimg.com/736x/d0/47/1e/d0471ec581478894309827e6ce71b948.jpg',
   'https://i.pinimg.com/736x/56/9a/d8/569ad8070d1782fd86194f86ae7c501a.jpg',
+  
   'https://i.pinimg.com/736x/a3/77/d0/a377d0c5cd548e9cb0ab6d279713da9a.jpg',
   'https://i.pinimg.com/736x/56/9a/d8/569ad8070d1782fd86194f86ae7c501a.jpg',
   <div key='jsx-item-3'>
@@ -53,55 +54,54 @@ const items = [
 const SignIn = () => {
   
   return (
-    <div className="flex justify-center items-center h-screen bg-black shadow-lg rounded-2xl mx-2 overflow-hidden">
-      <div className="w-[60%]">
-        <GridMotion items={items} />
-      </div>
-
-      <div className="flex flex-col justify-center bg-black p-20 w-1/2">
-        <img
-          className="h-14 w-14 mx-auto my-5 rounded-lg"
-          src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739999777/POT/erphxcw9ionbm1f6cvne.jpg"
-          alt="Login Logo"
-        />
-        <h1 className="text-4xl text-center text-white font-medium mb-8">
-          Welcome Back
-        </h1>
-
-        <form
-          className="flex flex-col gap-2 items-start w-full"
-           // Prevent default form submission
-        >
-        <Label className='text-white text-md'>Email</Label>
-          <Input
-            className="w-full px-4 border border-neutral-700 py-5 mb-4 rounded-[12px] bg-neutral-950 text-white"
-            type="email"
-            placeholder="Enter email address"
-            required
-            value=""
-           
-          />
-<Label className="text-white text-md" >Password</Label>
-          <Input
-            className="w-full px-4 border border-neutral-700 py-5 mb-4 rounded-[12px] bg-neutral-950 text-white"
-            type="password"
-            placeholder="Password"
-            required
-            value=""
-           
-          />
-          <button
-            className="w-full bg-gray-100 text-black py-3 rounded-[12px] font-semibold hover:bg-[#1f1f1f] hover:text-white transition duration-500 ease-in"
-            type="button" // Set type to button to avoid form submission
-             // Call postData on button click
-          >
-            Continue
-          </button>
-        </form>
-        <Link to="/signup" className="text-neutral-600 text-center pt-2" >Don't have an account?
-       <span className="text-white "> Sign up</span></Link>
-      </div>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen bg-black shadow-lg   md:overflow-hidden">
+    {/* Left Section - Grid Motion */}
+    <div className="w-full hidden md:block md:w-[60%] p-0 md:p-10">
+      <GridMotion items={items} />
     </div>
+
+    {/* Right Section - Login Form */}
+    <div className="flex flex-col justify-center bg-black p-6 pb-20 sm:p-10 md:p-20 w-full md:w-1/2">
+      <img
+        className="h-14 w-14 mx-auto my-5 rounded-lg"
+        src="https://res.cloudinary.com/dna3hwzre/image/upload/v1739999777/POT/erphxcw9ionbm1f6cvne.jpg"
+        alt="Login Logo"
+      />
+      <h1 className="text-3xl sm:text-4xl text-center text-white font-medium mb-6 sm:mb-8">
+        Welcome Back
+      </h1>
+
+      <form className="flex flex-col gap-2 items-start w-full">
+        <Label className='text-white text-md'>Email</Label>
+        <Input
+          className="w-full px-4 border border-neutral-700 py-4 rounded-lg bg-neutral-950 text-white"
+          type="email"
+          placeholder="Enter email address"
+          required
+        />
+
+        <Label className="text-white text-md">Password</Label>
+        <Input
+          className="w-full px-4 border border-neutral-700 py-4 rounded-lg bg-neutral-950 text-white"
+          type="password"
+          placeholder="Password"
+          required
+        />
+
+        <button
+          className="w-full bg-gray-100 text-black py-3 rounded-lg font-semibold hover:bg-[#1f1f1f] hover:text-white transition duration-500 ease-in"
+          type="button"
+        >
+          Continue
+        </button>
+      </form>
+
+      <Link to="/signup" className="text-neutral-500 text-center pt-3">
+        Don't have an account? <span className="text-white">Sign up</span>
+      </Link>
+    </div>
+  </div>
+
   );
 };
 
