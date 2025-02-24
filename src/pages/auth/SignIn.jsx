@@ -1,12 +1,15 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'sonner';
-import { LoginContext } from "@/context/LoginContext";
 import GridMotion from '@/css/gridmotion';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useAppStore } from "@/store/index";
+import apiClient from "@/lib/api-client";
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from "@/lib/constants";
 
-// Sample image items
+
+
 const items = [
   'https://i.pinimg.com/736x/a3/77/d0/a377d0c5cd548e9cb0ab6d279713da9a.jpg',
   'https://i.pinimg.com/736x/a3/77/d0/a377d0c5cd548e9cb0ab6d279713da9a.jpg',
@@ -51,7 +54,85 @@ const items = [
   </div>,
 ];
 
+
+
 const SignIn = () => {
+  const navigate = useNavigate();
+  const { setUserInfo } = useAppStore();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [recommandation, setRecommandation] = useState("");
+  const [userName, setUserName] = useState("");
+
+  const validateLogin = () => {
+    if (!email.length) {
+      toast.error("Email is required.");
+      return false;
+    }
+    if (!password.length) {
+      toast.error("Password is required.");
+      return false;
+    }
+    return true;
+  };
+  const validateSignup = () => {
+    if (!email.length) {
+      toast.error("Email is required.");
+      return false;
+    }
+    if (!password.length) {
+      toast.error("Password is required.");
+      return false;
+    }
+    if (password !== confirmPassword) {
+      toast.error("Password and Confirm Password should be same.");
+      return false;
+    }
+    return true;
+  };
+  const handleLogin = async () => {
+    try {
+      if (validateLogin()) {
+        const response = await apiClient.post(
+          LOGIN_ROUTE,
+          { email, password },
+          { withCredentials: true }
+        );
+        if (response.data.user.id) {
+          setUserInfo(response.data.user);
+          if (response.data.user.profileSetup) navigate("/dashboard");
+          else navigate("/profile");
+        } else {
+          console.log("error");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignup = async () => {
+    try {
+      if (validateSignup()) {
+        const response = await apiClient.post(
+          SIGNUP_ROUTE,
+          {
+            email,
+            password,
+          },
+          { withCredentials: true }
+        );
+        if (response.status === 201) {
+          setUserInfo(response.data.user);
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   
   return (
     <div className="flex flex-col md:flex-row justify-center items-center h-screen bg-black shadow-lg   md:overflow-hidden">
@@ -75,22 +156,28 @@ const SignIn = () => {
         <Label className='text-white text-md'>Email</Label>
         <Input
           className="w-full px-4 border border-neutral-700 py-4 rounded-lg bg-neutral-950 text-white"
-          type="email"
+          type={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter email address"
-          required
+          
+
         />
 
         <Label className="text-white text-md">Password</Label>
         <Input
           className="w-full px-4 border border-neutral-700 py-4 rounded-lg bg-neutral-950 text-white"
-          type="password"
+          type={password}
+          onChange={(e) => setPassword(e.target.value)}
+
           placeholder="Password"
-          required
+          
+
         />
 
         <button
           className="w-full bg-gray-100 text-black py-3 rounded-lg font-semibold hover:bg-[#1f1f1f] hover:text-white transition duration-500 ease-in"
           type="button"
+          onClick={handleLogin}
         >
           Continue
         </button>

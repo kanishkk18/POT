@@ -7,20 +7,17 @@ import SupportForm from "./pages/support";
 import Home from './pages/home/Home';
 import Pricing from "./pages/pricing";
 import Profile from './pages/profile';
-import { LoginContext } from "./context/LoginContext";
-import { Toaster } from "sonner";
-import Modal from "./css/modal";
 import Dashboard from "./pages/dashboard";
 import AdminDash from "./pages/admindash/index"
 import Wallet from "./pages/overview/page"
 
 
 const App = () => {
- 
-
 
   return ( 
   <BrowserRouter>
+
+  
     <div>
   
     <Routes>
@@ -34,7 +31,7 @@ const App = () => {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/admin/dashhboard" element={<AdminDash/>}/>
       <Route path="/wallet" element={<Wallet/>}/>
-      <Route path="/*" element={<Navigate to='/Home'/>}/>
+      <Route path="/*" element={<Navigate to='/'/>}/>
       </Routes>
      
     </div>

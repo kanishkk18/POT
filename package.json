@@ -86,7 +86,7 @@
     "three": "^0.167.1",
     "three-globe": "^2.31.1",
     "typescript": "^5.7.3",
-    "zustand": "^4.5.5"
+    "zustand": "^4.5.6"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

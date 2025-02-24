@@ -220,7 +220,10 @@ const Dashboard = () => {
       
 
     <Tabs defaultValue="dashboard" className="md:flex-[1] flex flex-col ">
-    
+    <TabsList className="absolute z-50 top-9 right-32 w-fit hidden md:flex gap-4 p-4">
+  <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+  <TabsTrigger value="overview">My wallet</TabsTrigger>
+</TabsList>
 <TabsContent value="dashboard" className=" md:flex thin-scrollbar">
   <div className="hidden md:block">
   <Mainsidebar/>

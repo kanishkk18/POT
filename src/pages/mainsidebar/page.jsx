@@ -11,7 +11,7 @@ import {
   IconSettings,
   IconUserBolt,
 } from "@tabler/icons-react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { MdTask } from "react-icons/md";
@@ -21,14 +21,14 @@ export default function SidebarDemo() {
   const links = [
     {
       label: "Dashboard",
-      href: "/dashboard",
+      to: "/dashboard",
       icon: (
         <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Wallet",
-      href: "/wallet",
+      to: "/",
       icon: (
         <IconCalendar className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
@@ -37,7 +37,7 @@ export default function SidebarDemo() {
    
     {
       label: "Settings",
-      href: "#",
+      to: "#",
       icon: (
         <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),

@@ -26,6 +26,9 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Button } from '@/components/ui/button';
 import RecentTransaction from '@/components/recenttransaction/index';
 import CryptoEcosystem from '../../Controllers/cryptoController';
+import { useAppStore } from '@/store';
+import AddTransaction from '@/components/addtransaction';
+
 
 
 
@@ -43,6 +46,7 @@ function Overview() {
   const id = useId();
   const [copied, setCopied] = useState(false);
   const inputRef = useRef(null);
+  const { userInfo, setUserInfo } = useAppStore();
 
   const handleCopy = () => {
     if (inputRef.current) {
@@ -82,7 +86,7 @@ function Overview() {
           "content-type" : "application/json",
         },
           body: JSON.stringify({
-            email: "",
+            userInfo_id: "",
             amount:5,
           }),
         });
@@ -365,12 +369,26 @@ function Overview() {
                 </div>
 
                 <div className="grid grid-cols-2  mb-8 bg-[#0a0b15] rounded-2xl border border-neutral-700">
-                  <Link to="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=google.com" className="flex flex-col border-r border-neutral-700 items-center justify-center p-8 hover:bg-[#22234A] transition-colors">
+                <Dialog >
+              <DialogTrigger className="w-full ">
+              <div className="flex flex-col border-r border-neutral-700 items-center justify-center p-8 hover:bg-[#22234A] transition-colors">
                     <div className="w-12 h-12 rounded-full bg-[#2A2B4A] flex items-center justify-center mb-2">
                       <Plus className="w-6 h-6" />
                     </div>
                     <span>Add</span>
-                  </Link>
+                  </div>
+              </DialogTrigger>
+              <DialogContent className="bg-neutral-700 border-none">
+                <DialogHeader>
+                  <DialogTitle></DialogTitle>
+                  <DialogDescription>
+                    {/* add tansaction */}
+                <AddTransaction/>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+                 
                   <Link to="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=google.com" className="flex flex-col items-center justify-center p-8  hover:bg-[#22234A] transition-colors">
                     <div className="w-12 h-12 rounded-full bg-[#2A2B4A] flex items-center justify-center mb-2">
                       <ArrowDown className="w-6 h-6" />
